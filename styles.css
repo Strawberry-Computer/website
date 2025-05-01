@@ -78,10 +78,11 @@ nav ul li a:hover {
 
 /* Hero section */
 .hero {
-    padding: 80px 0;
+    padding: 100px 0 120px;
     text-align: center;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, #f8f9fa 0%, #f0f0f5 100%);
 }
 
 .hero-content {
@@ -142,10 +143,11 @@ nav ul li a:hover {
     width: 100%;
     height: 100%;
     background: 
-        linear-gradient(90deg, transparent 0%, rgba(255, 59, 92, 0.1) 50%, transparent 100%),
-        linear-gradient(180deg, transparent 0%, rgba(76, 175, 80, 0.1) 50%, transparent 100%);
+        linear-gradient(90deg, transparent 0%, rgba(255, 59, 92, 0.15) 50%, transparent 100%),
+        linear-gradient(180deg, transparent 0%, rgba(76, 175, 80, 0.15) 50%, transparent 100%);
     background-size: 200% 200%, 200% 200%;
     animation: pulse 5s infinite;
+    filter: blur(1px);
 }
 
 @keyframes pulse {
@@ -178,34 +180,136 @@ nav ul li a:hover {
 
 /* About section */
 .about {
-    padding: 80px 0;
+    padding: 90px 0;
     text-align: center;
-    background-color: #f0f0f5;
+    background-color: #ffffff;
+    position: relative;
+    z-index: 1;
+}
+
+.about::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, #f7f7f9);
+    z-index: -1;
 }
 
 .about h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
     color: var(--dark-color);
+    position: relative;
+    display: inline-block;
+}
+
+.about h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
 }
 
 .about p {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto 15px;
     font-size: 1.1rem;
     color: var(--gray-color);
 }
 
+/* Problems section */
+.problems {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #f7f7f9;
+    position: relative;
+    overflow: hidden;
+}
+
+.problems::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.problems h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--dark-color);
+    position: relative;
+}
+
+.problems-list {
+    max-width: 900px;
+    margin: 0 auto;
+    list-style-type: none;
+    text-align: left;
+    font-size: 1.1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+}
+
+.problems-list li {
+    position: relative;
+    padding: 25px 20px 25px 25px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-left: 3px solid var(--primary-color);
+    color: var(--gray-color);
+}
+
+.problems-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.problems-list li strong {
+    display: block;
+    color: var(--dark-color);
+    margin-bottom: 8px;
+    font-size: 1.15rem;
+}
+
 /* Vision section */
 .vision {
-    padding: 80px 0;
+    padding: 100px 0;
     text-align: center;
+    background-color: white;
+    position: relative;
 }
 
 .vision h2 {
-    font-size: 2rem;
-    margin-bottom: 50px;
+    font-size: 2.2rem;
+    margin-bottom: 60px;
     color: var(--dark-color);
+    position: relative;
+    display: inline-block;
+}
+
+.vision h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
 }
 
 .vision-columns {
@@ -219,16 +323,38 @@ nav ul li a:hover {
     flex: 1;
     min-width: 250px;
     max-width: 350px;
-    padding: 30px;
+    padding: 35px;
     border-radius: 10px;
     background-color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
     transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.vision-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+    z-index: -1;
 }
 
 .vision-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.vision-item:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 .vision-icon {
@@ -281,15 +407,38 @@ nav ul li a:hover {
 
 /* Projects section */
 .projects {
-    padding: 80px 0;
+    padding: 100px 0;
     text-align: center;
     background-color: #f0f0f5;
+    position: relative;
+}
+
+.projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
 }
 
 .projects h2 {
     font-size: 2rem;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     color: var(--dark-color);
+    position: relative;
+}
+
+.projects h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
 }
 
 .project-cards {
@@ -297,36 +446,54 @@ nav ul li a:hover {
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .project-card {
     flex: 1;
     min-width: 300px;
     max-width: 350px;
-    padding: 30px;
+    padding: 35px;
     border-radius: 10px;
     background-color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s, box-shadow 0.3s;
     text-align: left;
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(76, 175, 80, 0.05);
+    border-radius: 0 0 0 100%;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 }
 
 .project-card h3 {
     color: var(--primary-color);
     margin-bottom: 15px;
+    font-size: 1.4rem;
 }
 
 .project-card p {
     flex-grow: 1;
     color: var(--gray-color);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    line-height: 1.6;
 }
 
 .project-link {
@@ -334,12 +501,17 @@ nav ul li a:hover {
     align-items: center;
     text-decoration: none;
     color: var(--dark-color);
-    font-weight: 500;
-    transition: color 0.3s;
+    font-weight: 600;
+    transition: all 0.3s;
+    padding: 8px 15px;
+    background-color: rgba(76, 175, 80, 0.1);
+    border-radius: 20px;
 }
 
 .project-link:hover {
     color: var(--primary-color);
+    background-color: rgba(76, 175, 80, 0.15);
+    transform: translateY(-2px);
 }
 
 .github-icon {
@@ -354,37 +526,77 @@ nav ul li a:hover {
 
 /* Join section */
 .join {
-    padding: 80px 0;
+    padding: 120px 0;
     text-align: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #f0f0f5 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.join::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 59, 92, 0.03) 0%, transparent 70%);
+    top: -150px;
+    left: -150px;
+    border-radius: 50%;
+}
+
+.join::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.03) 0%, transparent 70%);
+    bottom: -150px;
+    right: -150px;
+    border-radius: 50%;
 }
 
 .join h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
     color: var(--dark-color);
+    position: relative;
+    display: inline-block;
+}
+
+.join h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
 }
 
 .join p {
-    max-width: 600px;
-    margin: 0 auto 40px;
-    font-size: 1.1rem;
+    max-width: 650px;
+    margin: 0 auto 50px;
+    font-size: 1.2rem;
     color: var(--gray-color);
+    line-height: 1.7;
 }
 
 .cta-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     flex-wrap: wrap;
 }
 
 .cta-button {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 14px 35px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .cta-button.telegram {
@@ -399,36 +611,56 @@ nav ul li a:hover {
 
 .cta-button:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Footer styles */
 footer {
-    padding: 40px 0;
+    padding: 50px 0;
     text-align: center;
-    background-color: #f0f0f5;
-    margin-top: 40px;
+    background-color: var(--dark-color);
+    position: relative;
 }
 
 footer p {
-    color: var(--gray-color);
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: 20px;
+    font-size: 0.95rem;
 }
 
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
 }
 
 .footer-links a {
-    color: var(--dark-color);
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+    font-weight: 500;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
 }
 
 .footer-links a:hover {
-    color: var(--primary-color);
+    color: white;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
 }
 
 /* Animations for strawberry logo */
@@ -444,6 +676,80 @@ footer p {
 #strawberry-logo .strawberry-leaf {
     transform-origin: 30px 10px;
     animation: wiggle 5s ease-in-out infinite;
+}
+
+/* Roadmap styles */
+.roadmap {
+    width: 100%;
+    margin-top: 50px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.roadmap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+}
+
+.roadmap h3 {
+    text-align: center;
+    margin-bottom: 35px;
+    color: var(--dark-color);
+    font-size: 1.6rem;
+    position: relative;
+}
+
+.roadmap h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.roadmap-item {
+    margin-bottom: 30px;
+    padding-left: 25px;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.roadmap-item:hover {
+    transform: translateX(5px);
+}
+
+.roadmap-item:last-child {
+    margin-bottom: 0;
+}
+
+.roadmap-item .version {
+    display: inline-block;
+    font-weight: 700;
+    color: white;
+    margin-right: 15px;
+    background-color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    box-shadow: 0 3px 8px rgba(255, 59, 92, 0.3);
+}
+
+.roadmap-item p {
+    margin: 8px 0 0 0;
+    font-size: 1rem;
+    color: var(--gray-color);
+    line-height: 1.5;
 }
 
 /* Responsive styles */
@@ -472,5 +778,13 @@ footer p {
     .vision-columns, .project-cards {
         flex-direction: column;
         align-items: center;
+    }
+    
+    .problems-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .roadmap {
+        padding: 20px 15px;
     }
 }
