@@ -8,6 +8,7 @@
     --light-color: #f8f9fa;
     --gray-color: #6c757d;
     --telegram-color: #0088cc;
+    --twitter-color: #1DA1F2;
     --animation-speed: 20s;
 }
 
@@ -606,6 +607,11 @@ nav ul li a:hover {
 
 .cta-button.github {
     background-color: var(--dark-color);
+    color: white;
+}
+
+.cta-button.twitter {
+    background-color: var(--twitter-color);
     color: white;
 }
 
