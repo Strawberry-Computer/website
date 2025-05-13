@@ -620,6 +620,120 @@ nav ul li a:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Berrry App Banner */
+.berrry-banner {
+    background: linear-gradient(135deg, #f5f7ff 0%, #e6eaff 100%);
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.berrry-banner::before {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(130, 87, 229, 0.05) 0%, transparent 70%);
+    top: -125px;
+    right: -125px;
+    border-radius: 50%;
+}
+
+.berrry-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.berrry-logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #8257e5;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(130, 87, 229, 0.3);
+}
+
+.berrry-banner h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.berrry-banner p {
+    font-size: 1.1rem;
+    color: var(--gray-color);
+    margin-bottom: 25px;
+    max-width: 700px;
+}
+
+.berrry-banner p a {
+    color: #8257e5;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.berrry-banner p a:hover {
+    text-decoration: underline;
+    color: #6941c6;
+}
+
+.berrry-examples {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.berrry-example {
+    padding: 5px 15px;
+    background-color: rgba(130, 87, 229, 0.1);
+    border-radius: 20px;
+    color: #8257e5;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.berrry-cta {
+    display: inline-block;
+    background-color: #8257e5;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(130, 87, 229, 0.3);
+}
+
+.berrry-cta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(130, 87, 229, 0.4);
+}
+
+@media (max-width: 768px) {
+    .berrry-content {
+        padding: 0 20px;
+    }
+
+    .berrry-banner h2 {
+        font-size: 1.8rem;
+    }
+}
+
 /* Footer styles */
 footer {
     padding: 50px 0;
