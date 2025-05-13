@@ -1,15 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-/* @tweakable the main accent color for the site */
+/* Color system */
 :root {
     --primary-color: #ff3b5c;
+    --primary-light: #ff7388;
+    --primary-dark: #d82e4a;
+
     --secondary-color: #4caf50;
+    --secondary-light: #6abf6e;
+    --secondary-dark: #3c9a40;
+
     --dark-color: #1e1e24;
+    --dark-light: #36363d;
+    --dark-lighter: #4a4a52;
+
     --light-color: #f8f9fa;
+    --light-dark: #e9ecef;
+    --light-darker: #dee2e6;
+
     --gray-color: #6c757d;
+    --gray-light: #adb5bd;
+    --gray-dark: #495057;
+
+    --berrry-color: #8257e5;
+    --berrry-light: #9b7aec;
+    --berrry-dark: #6941c6;
+
     --telegram-color: #0088cc;
     --twitter-color: #1DA1F2;
+
+    /* Spacing system */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+
+    /* Border radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-pill: 9999px;
+
+    /* Animation speeds */
     --animation-speed: 20s;
+    --transition-fast: 0.2s;
+    --transition-medium: 0.3s;
+    --transition-slow: 0.5s;
 }
 
 * {
@@ -24,6 +64,45 @@ body {
     color: var(--dark-color);
     background-color: var(--light-color);
     overflow-x: hidden;
+}
+
+/* Typography scale */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-lg);
+}
+
+h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: var(--space-md);
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: var(--space-sm);
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: var(--space-md);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    h3 {
+        font-size: 1.3rem;
+    }
 }
 
 .container {
@@ -77,13 +156,24 @@ nav ul li a:hover {
     color: var(--primary-color);
 }
 
+/* Section spacing */
+section {
+    padding: var(--space-3xl) 0;
+    text-align: center;
+    position: relative;
+}
+
+section + section {
+    margin-top: var(--space-md);
+}
+
 /* Hero section */
 .hero {
-    padding: 100px 0 120px;
+    padding: var(--space-3xl) 0 calc(var(--space-3xl) + var(--space-xl));
     text-align: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #f8f9fa 0%, #f0f0f5 100%);
+    background: linear-gradient(135deg, var(--light-color) 0%, var(--light-dark) 100%);
 }
 
 .hero-content {
@@ -181,9 +271,7 @@ nav ul li a:hover {
 
 /* About section */
 .about {
-    padding: 90px 0;
-    text-align: center;
-    background-color: #ffffff;
+    background-color: white;
     position: relative;
     z-index: 1;
 }
@@ -199,24 +287,25 @@ nav ul li a:hover {
     z-index: -1;
 }
 
-.about h2 {
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-    color: var(--dark-color);
+.section-heading {
     position: relative;
     display: inline-block;
+    margin-bottom: var(--space-2xl);
 }
 
-.about h2::after {
+.section-heading::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--radius-pill);
 }
+
+/* This styling is now handled by .section-heading */
 
 .about p {
     max-width: 800px;
@@ -244,12 +333,7 @@ nav ul li a:hover {
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
 }
 
-.problems h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: var(--dark-color);
-    position: relative;
-}
+/* This styling is now handled by .section-heading */
 
 .problems-list {
     max-width: 900px;
@@ -294,24 +378,6 @@ nav ul li a:hover {
     position: relative;
 }
 
-.vision h2 {
-    font-size: 2.2rem;
-    margin-bottom: 60px;
-    color: var(--dark-color);
-    position: relative;
-    display: inline-block;
-}
-
-.vision h2::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-}
 
 .vision-columns {
     display: flex;
@@ -320,18 +386,27 @@ nav ul li a:hover {
     gap: 30px;
 }
 
-.vision-item {
+.card {
     flex: 1;
     min-width: 250px;
     max-width: 350px;
-    padding: 35px;
-    border-radius: 10px;
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
     background-color: white;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
     position: relative;
     overflow: hidden;
     z-index: 1;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.vision-item {
+    composes: card;
 }
 
 .vision-item::after {
@@ -424,23 +499,6 @@ nav ul li a:hover {
     background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
 }
 
-.projects h2 {
-    font-size: 2rem;
-    margin-bottom: 60px;
-    color: var(--dark-color);
-    position: relative;
-}
-
-.projects h2::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background-color: var(--secondary-color);
-}
 
 .project-cards {
     display: flex;
@@ -456,11 +514,11 @@ nav ul li a:hover {
     flex: 1;
     min-width: 300px;
     max-width: 350px;
-    padding: 35px;
-    border-radius: 10px;
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
     background-color: white;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -556,24 +614,6 @@ nav ul li a:hover {
     border-radius: 50%;
 }
 
-.join h2 {
-    font-size: 2.2rem;
-    margin-bottom: 25px;
-    color: var(--dark-color);
-    position: relative;
-    display: inline-block;
-}
-
-.join h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-}
 
 .join p {
     max-width: 650px;
@@ -590,13 +630,29 @@ nav ul li a:hover {
     flex-wrap: wrap;
 }
 
-.cta-button {
+.button {
     display: inline-block;
-    padding: 14px 35px;
-    border-radius: 30px;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-pill);
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s;
+    transition: all var(--transition-medium);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-medium);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -622,12 +678,12 @@ nav ul li a:hover {
 
 /* Berrry App Banner */
 .berrry-banner {
-    background: linear-gradient(135deg, #f5f7ff 0%, #e6eaff 100%);
-    padding: 60px 0;
+    background: linear-gradient(135deg, var(--light-color) 0%, var(--light-dark) 100%);
+    padding: var(--space-3xl) 0;
     text-align: center;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--light-darker);
 }
 
 .berrry-banner::before {
@@ -635,9 +691,20 @@ nav ul li a:hover {
     position: absolute;
     width: 250px;
     height: 250px;
-    background: radial-gradient(circle, rgba(130, 87, 229, 0.05) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 59, 92, 0.05) 0%, transparent 70%);
     top: -125px;
     right: -125px;
+    border-radius: 50%;
+}
+
+.berrry-banner::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.05) 0%, transparent 70%);
+    bottom: -100px;
+    left: -100px;
     border-radius: 50%;
 }
 
@@ -647,47 +714,49 @@ nav ul li a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: var(--space-lg);
+    position: relative;
+    z-index: 2;
 }
 
-.berrry-logo {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #8257e5;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(130, 87, 229, 0.3);
-}
 
-.berrry-banner h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 5px;
-}
 
 .berrry-banner p {
     font-size: 1.1rem;
     color: var(--gray-color);
-    margin-bottom: 25px;
+    margin-bottom: var(--space-xl);
     max-width: 700px;
+    line-height: 1.6;
 }
 
 .berrry-banner p a {
-    color: #8257e5;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.2s;
+    transition: all var(--transition-fast);
+    padding: 0 var(--space-xs);
+    position: relative;
+}
+
+.berrry-banner p a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-medium);
 }
 
 .berrry-banner p a:hover {
-    text-decoration: underline;
-    color: #6941c6;
+    color: var(--primary-dark);
+}
+
+.berrry-banner p a:hover::before {
+    transform: scaleX(1);
 }
 
 .berrry-examples {
@@ -709,28 +778,30 @@ nav ul li a:hover {
 
 .berrry-cta {
     display: inline-block;
-    background-color: #8257e5;
+    background-color: var(--primary-color);
     color: white;
-    padding: 12px 30px;
-    border-radius: 50px;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-pill);
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s;
-    box-shadow: 0 4px 12px rgba(130, 87, 229, 0.3);
+    transition: all var(--transition-medium);
+    box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);
 }
 
 .berrry-cta:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(130, 87, 229, 0.4);
+    box-shadow: 0 8px 20px rgba(255, 59, 92, 0.4);
+    background-color: var(--primary-dark);
 }
 
 @media (max-width: 768px) {
     .berrry-content {
-        padding: 0 20px;
+        padding: 0 var(--space-lg);
     }
 
-    .berrry-banner h2 {
-        font-size: 1.8rem;
+
+    .berrry-banner {
+        padding: var(--space-2xl) 0;
     }
 }
 
@@ -873,38 +944,156 @@ footer p {
 }
 
 /* Responsive styles */
+/* Tablet responsive styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .container {
+        padding: 0 var(--space-lg);
+    }
+
+    section {
+        padding: var(--space-2xl) 0;
+    }
+
+    .vision-columns, .project-cards {
+        gap: var(--space-lg);
+    }
+
+    .card, .vision-item, .project-card {
+        min-width: 280px;
+    }
+
+    .problems-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+    }
+}
+
+/* Mobile responsive styles */
 @media (max-width: 768px) {
+    /* Container padding */
+    .container {
+        padding: 0 var(--space-md);
+    }
+
+    /* Header adjustments */
     header {
         flex-direction: column;
+        padding: var(--space-lg) 0;
     }
-    
+
     nav {
-        margin-top: 20px;
+        margin-top: var(--space-lg);
+        width: 100%;
     }
-    
+
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
+        gap: var(--space-md);
     }
-    
+
     nav ul li {
-        margin: 0 10px 10px;
+        margin: 0;
     }
-    
+
+    /* Section spacing */
+    section {
+        padding: var(--space-2xl) 0;
+    }
+
+    section + section {
+        margin-top: 0;
+    }
+
+    /* Heading sizes adjustment */
     .hero h2 {
         font-size: 2rem;
     }
-    
+
+    /* Card layouts */
     .vision-columns, .project-cards {
         flex-direction: column;
         align-items: center;
+        gap: var(--space-xl);
     }
-    
+
+    .card, .vision-item, .project-card {
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Problem list */
     .problems-list {
         grid-template-columns: 1fr;
+        gap: var(--space-lg);
+        padding: 0;
     }
-    
+
+    /* Roadmap */
     .roadmap {
-        padding: 20px 15px;
+        padding: var(--space-lg) var(--space-md);
+        margin-top: var(--space-xl);
     }
+
+    /* CTA buttons */
+    .cta-buttons {
+        gap: var(--space-md);
+    }
+
+    /* Footer spacing */
+    footer {
+        padding: var(--space-2xl) 0;
+    }
+}
+
+/* Small phone responsive styles */
+@media (max-width: 480px) {
+    /* Adjusted container padding */
+    .container {
+        padding: 0 var(--space-sm);
+    }
+
+    /* Further reduced text sizes */
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Tighter spacing */
+    section {
+        padding: var(--space-xl) 0;
+    }
+
+    /* Simpler hero */
+    .hero {
+        padding: var(--space-xl) 0;
+    }
+
+    .computer-animation {
+        height: 200px;
+    }
+
+    .computer {
+        width: 200px;
+        height: 150px;
+    }
+
+    /* Tight button layouts */
+    .cta-buttons {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+
+    .cta-button {
+        width: 100%;
+    }
+
 }
