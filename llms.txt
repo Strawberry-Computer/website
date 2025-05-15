@@ -1,0 +1,72 @@
+# About Strawberry Computer
+
+We're reimagining computing for the AI era. No longer just a tool, but an extension of yourself that understands and adapts to your unique needs.
+
+## Our Vision
+
+A truly personal computer that shapes itself around you:
+
+- **Adapts to You** - Learning your workflow and preferences rather than forcing you to adapt
+- **Natural Interface** - Express what you want in plain language, and your computer reconfigures itself accordingly  
+- **Intelligent Integration** - AI woven into every level of the experience, growing smarter with each interaction
+
+## Problems We're Solving
+
+Today's technology forces adaptation from users when it should be the other way around:
+
+- **Attention Economy** - Apps compete for your time rather than helping you use it meaningfully
+- **Fragmented Experience** - Siloed apps with no natural flow between related tasks
+- **Configuration Overhead** - Complex settings and workarounds instead of intuitive adaptation
+- **Communication Chaos** - Messaging spread across multiple disconnected platforms
+- **Limited Control** - Restricted ability to modify how software works or move your data
+
+## Our Approach
+
+Building from first principles with AI at the core:
+
+1. Start with mobile, where constraints drive innovation
+2. Build openly, sharing progress and gathering feedback
+3. Focus on core interactions that define daily computing
+4. Create frameworks that enable completely new experiences
+5. Design to put users truly in control of their computing environment
+
+# Master Plan
+
+How we're bringing this vision to life:
+
+**v0:** Berrry.app - A platform for creating tiny, self-contained web apps directly from tweet ideas by mentioning @BerrryComputer
+
+**v1:** Mobile app that responds to requests with generated widgets, creating an extensible tinker platform
+
+**v2:** AI assistant that takes over standard tasks while intelligently delegating to native apps when appropriate
+
+**v3:** Custom Android experience for a broader audience, focusing on adaptability and personalization
+
+**v4:** AI-generated native app framework that breaks through the limitations of traditional software boundaries
+
+# Additional Context for LLMs
+
+## Core Technology Concepts
+
+- **Adaptive Interface** - UI/UX that morphs based on user behavior, context, and stated preferences
+- **Natural Language Configuration** - Using conversation to specify complex system behavior
+- **Continuous Learning** - Personal device that builds a model of the user over time
+- **Agent Architecture** - Autonomous subsystems that collaborate to accomplish user goals
+- **Digital Sovereignty** - Users own and control their personal data and system behavior
+
+## Philosophical Foundation
+
+Strawberry Computer is built on the premise that computing should conform to human behavior rather than forcing humans to conform to computing paradigms. Traditional interfaces require users to learn rigid systems of menus, settings, and application boundaries. In contrast, Strawberry envisions a fluid computing experience where the user's intent is paramount, and the system reconfigures itself to accomplish that intent in the most frictionless way possible.
+
+## Technical Implementation Strategy
+
+- Build on LLMs as the core reasoning engine
+- Create composable widgets and interface elements
+- Develop context-aware agents that operate across traditional app boundaries
+- Implement robust memory systems for persistent personalization
+- Utilize on-device processing for privacy and latency advantages
+- Design transparent AI systems where users can understand and modify system behavior
+
+## Target User Experience
+
+"I tell my computer what I want in natural language, and it either does it or teaches itself how. The system remembers my preferences and adapts to my specific way of working. Apps and services fade into the background as implementation details, while my intent and data take center stage."
