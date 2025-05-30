@@ -216,7 +216,7 @@ section + section {
 
 /* Hero section */
 .hero {
-    padding: var(--space-3xl) 0 calc(var(--space-3xl) + var(--space-xl));
+    padding: var(--space-3xl) 0 var(--space-xl);
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -241,78 +241,268 @@ section + section {
     margin-bottom: 30px;
 }
 
-.computer-animation {
+/* Berrry App Showcase */
+.berrry-showcase {
     margin-top: 50px;
     position: relative;
-    height: 300px;
 }
 
-.computer {
-    width: 300px;
-    height: 200px;
+.app-fan {
+    position: relative;
+    height: 450px;
     margin: 0 auto;
-    position: relative;
+    max-width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.screen {
-    width: 100%;
-    height: 80%;
-    background: var(--dark-color);
-    border-radius: 10px 10px 0 0;
+.app-card {
+    position: absolute;
+    width: 260px;
+    height: 364px;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     overflow: hidden;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    transform-origin: center bottom;
 }
 
-.screen-content {
-    position: absolute;
-    width: 90%;
-    height: 85%;
-    top: 7.5%;
-    left: 5%;
-    background: linear-gradient(45deg, #303030, #1a1a1a);
-    overflow: hidden;
-}
-
-.screen-content::before {
-    content: '';
-    position: absolute;
+.app-card img {
     width: 100%;
-    height: 100%;
-    background: 
-        linear-gradient(90deg, transparent 0%, rgba(255, 59, 92, 0.15) 50%, transparent 100%),
-        linear-gradient(180deg, transparent 0%, rgba(76, 175, 80, 0.15) 50%, transparent 100%);
-    background-size: 200% 200%, 200% 200%;
-    animation: pulse 5s infinite;
-    filter: blur(1px);
+    height: 260px;
+    object-fit: cover;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
-@keyframes pulse {
-    0%, 100% {
-        background-position: 0% 0%, 0% 0%;
+.app-info {
+    padding: var(--space-md);
+    text-align: center;
+}
+
+.app-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: var(--space-xs);
+}
+
+.app-info p {
+    font-size: 0.85rem;
+    color: var(--gray-color);
+    margin: 0;
+}
+
+/* Fan positioning */
+.app-card-center {
+    z-index: 5;
+    transform: translateY(-20px);
+}
+
+.app-card-2 {
+    z-index: 4;
+    transform: translateX(-120px) translateY(-5px) rotate(-12deg);
+}
+
+.app-card-3 {
+    z-index: 4;
+    transform: translateX(120px) translateY(-5px) rotate(12deg);
+}
+
+.app-card-1 {
+    z-index: 3;
+    transform: translateX(-230px) translateY(10px) rotate(-25deg);
+}
+
+.app-card-4 {
+    z-index: 3;
+    transform: translateX(230px) translateY(10px) rotate(25deg);
+}
+
+.showcase-text {
+    text-align: center;
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-lg);
+}
+
+.showcase-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: var(--space-md);
+}
+
+.showcase-tagline {
+    font-size: 1.1rem;
+    color: var(--gray-color);
+    margin-bottom: var(--space-2xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.showcase-tagline a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-fast);
+}
+
+.showcase-tagline a:hover {
+    color: var(--primary-dark);
+}
+
+.berrry-cta-hero {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-medium);
+    box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);
+    margin-top: var(--space-sm);
+}
+
+/* Hover effects */
+.app-card:hover {
+    z-index: 10;
+    scale: 1.1;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.berrry-cta-hero:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 59, 92, 0.4);
+    background-color: var(--primary-dark);
+}
+
+/* Responsive behavior */
+@media (max-width: 1024px) {
+    .app-fan {
+        max-width: 700px;
+        height: 350px;
     }
-    50% {
-        background-position: 100% 100%, 100% 100%;
+    
+    .app-card {
+        width: 160px;
+        height: 220px;
+    }
+    
+    .app-card img {
+        height: 160px;
+    }
+    
+    .app-card-1 {
+        transform: translateX(-140px) translateY(20px) rotate(-20deg);
+    }
+    
+    .app-card-2 {
+        transform: translateX(-70px) translateY(5px) rotate(-10deg);
+    }
+    
+    .app-card-3 {
+        transform: translateX(70px) translateY(5px) rotate(10deg);
+    }
+    
+    .app-card-4 {
+        transform: translateX(140px) translateY(20px) rotate(20deg);
     }
 }
 
-.keyboard {
-    width: 100%;
-    height: 20%;
-    background: #e0e0e0;
-    border-radius: 0 0 10px 10px;
-    position: relative;
+@media (max-width: 768px) {
+    .app-fan {
+        height: 300px;
+        max-width: 500px;
+    }
+    
+    .app-card {
+        width: 120px;
+        height: 160px;
+    }
+    
+    .app-card img {
+        height: 120px;
+    }
+    
+    .app-info {
+        padding: var(--space-sm);
+    }
+    
+    .app-info h3 {
+        font-size: 0.85rem;
+    }
+    
+    .app-info p {
+        font-size: 0.75rem;
+    }
+    
+    .app-card-1 {
+        transform: translateX(-100px) translateY(30px) rotate(-15deg);
+    }
+    
+    .app-card-2 {
+        transform: translateX(-50px) translateY(10px) rotate(-8deg);
+    }
+    
+    .app-card-3 {
+        transform: translateX(50px) translateY(10px) rotate(8deg);
+    }
+    
+    .app-card-4 {
+        transform: translateX(100px) translateY(30px) rotate(15deg);
+    }
 }
 
-.keyboard::after {
-    content: '';
-    position: absolute;
-    width: 30%;
-    height: 10px;
-    background: #c0c0c0;
-    bottom: 10px;
-    left: 35%;
-    border-radius: 5px;
+@media (max-width: 480px) {
+    .berrry-showcase {
+        margin-top: var(--space-xl);
+    }
+    
+    .app-fan {
+        height: 250px;
+        max-width: 350px;
+    }
+    
+    .app-card {
+        width: 90px;
+        height: 120px;
+    }
+    
+    .app-card img {
+        height: 90px;
+    }
+    
+    .app-info h3 {
+        font-size: 0.75rem;
+    }
+    
+    .app-info p {
+        font-size: 0.65rem;
+    }
+    
+    .app-card-1 {
+        transform: translateX(-70px) translateY(40px) rotate(-12deg);
+    }
+    
+    .app-card-2 {
+        transform: translateX(-35px) translateY(15px) rotate(-6deg);
+    }
+    
+    .app-card-3 {
+        transform: translateX(35px) translateY(15px) rotate(6deg);
+    }
+    
+    .app-card-4 {
+        transform: translateX(70px) translateY(40px) rotate(12deg);
+    }
+    
+    .showcase-tagline {
+        font-size: 1rem;
+    }
 }
 
 /* About section */

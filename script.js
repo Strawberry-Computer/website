@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", function() {
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     }, false);
     
-    // Type animation for screen content
-    typeAnimation();
+    // App card interactions
+    initializeAppCards();
     
     // Smooth scrolling for navigation links
     document.querySelectorAll('nav a').forEach(anchor => {
@@ -48,85 +48,42 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-function typeAnimation() {
-    const screenContent = document.querySelector('.screen-content');
+function initializeAppCards() {
+    const appCards = document.querySelectorAll('.app-card');
     
-    // Create a terminal-like element
-    const terminal = document.createElement('div');
-    terminal.className = 'terminal';
-    terminal.style.cssText = `
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        color: #0f0;
-        font-family: monospace;
-        font-size: 12px;
-        width: calc(100% - 20px);
-        height: calc(100% - 20px);
-        overflow: hidden;
-    `;
+    // App URLs mapping
+    const appUrls = {
+        'savespace': 'https://savespace.berrry.app',
+        'moviesense': 'https://moviesense.berrry.app',
+        'pizzaparty': 'https://pizzaparty.berrry.app',
+        'icebreak': 'https://icebreak.berrry.app',
+        'doodleboard': 'https://doodleboard.berrry.app'
+    };
     
-    screenContent.appendChild(terminal);
-    
-    /* @tweakable terminal text content */
-    const lines = [
-        'Initializing Strawberry OS...',
-        'Loading AI Core...',
-        'Integrating personal preferences...',
-        'Customizing interface...',
-        'Optimizing for user experience...',
-        'System ready.',
-        '> Strawberry Computer activated.',
-        '> Your personal AI companion is ready.',
-        '> How can I help you today?'
-    ];
-    
-    /* @tweakable typing speed (milliseconds) */
-    const typingSpeed = { min: 50, max: 100 };
-    
-    /* @tweakable pause between lines (milliseconds) */
-    const linePause = 500;
-    
-    /* @tweakable pause before restarting animation (milliseconds) */
-    const restartDelay = 5000;
-    
-    let lineIndex = 0;
-    let charIndex = 0;
-    
-    function type() {
-        if (lineIndex < lines.length) {
-            // If starting a new line
-            if (charIndex === 0) {
-                const lineElement = document.createElement('div');
-                lineElement.className = 'line';
-                terminal.appendChild(lineElement);
-            }
+    appCards.forEach(card => {
+        const appName = card.getAttribute('data-app');
+        const url = appUrls[appName];
+        
+        if (url) {
+            card.addEventListener('click', () => {
+                window.open(url, '_blank');
+            });
             
-            const currentLine = terminal.querySelector('.line:last-child');
-            const currentText = lines[lineIndex].substring(0, charIndex + 1);
-            currentLine.textContent = currentText;
-            
-            charIndex++;
-            
-            // If line is complete
-            if (charIndex === lines[lineIndex].length + 1) {
-                lineIndex++;
-                charIndex = 0;
-                setTimeout(type, linePause); // Pause before next line
-            } else {
-                setTimeout(type, typingSpeed.min + Math.random() * (typingSpeed.max - typingSpeed.min)); // Random typing speed
-            }
-        } else {
-            // Restart animation after a pause
-            setTimeout(() => {
-                terminal.innerHTML = '';
-                lineIndex = 0;
-                charIndex = 0;
-                type();
-            }, restartDelay);
+            // Add visual feedback
+            card.style.cursor = 'pointer';
         }
-    }
+        
+        // Add subtle animation on load
+        const delay = Array.from(appCards).indexOf(card) * 100;
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = card.style.transform || '';
+        }, delay);
+    });
     
-    // Start typing animation
-    type();
+    // Initialize cards as transparent for animation
+    appCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transition = 'all 0.6s ease-out';
+    });
 }
