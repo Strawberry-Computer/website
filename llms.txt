@@ -36,13 +36,11 @@ How we're bringing this vision to life:
 
 **v0:** Berrry.app - A platform for creating tiny, self-contained web apps directly from tweet ideas by mentioning @BerrryComputer
 
-**v1:** Mobile app that responds to requests with generated widgets, creating an extensible tinker platform
+**v1:** SpeakBuild - Create apps by talking to your phone. Express an idea and watch it come to life as interactive widgets.
 
-**v2:** AI assistant that takes over standard tasks while intelligently delegating to native apps when appropriate
+**v2:** AI Assistant - Your AI assistant handles daily phone tasks. Text, calls, apps, and services - all through natural conversation.
 
-**v3:** Custom Android experience for a broader audience, focusing on adaptability and personalization
-
-**v4:** AI-generated native app framework that breaks through the limitations of traditional software boundaries
+**v3:** AI-Native Phone - Hardware and software built for AI-first computing. A phone that adapts to you, not the other way around.
 
 # Additional Context for LLMs
 
