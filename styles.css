@@ -115,10 +115,13 @@ p {
 
 /* Header styles */
 header {
+    padding: 20px 0;
+}
+
+header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
     flex-wrap: wrap;
 }
 
@@ -1169,8 +1172,11 @@ footer p {
     }
 
     /* Header adjustments */
-    header {
+    header .container {
         flex-direction: column;
+    }
+    
+    header {
         padding: var(--space-lg) 0;
     }
 
