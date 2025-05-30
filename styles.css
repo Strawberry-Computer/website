@@ -164,7 +164,54 @@ section {
 }
 
 section + section {
-    margin-top: var(--space-md);
+    margin-top: 0;
+}
+
+/* Section dividers and visual separation */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(30, 30, 36, 0.1) 20%, rgba(30, 30, 36, 0.2) 50%, rgba(30, 30, 36, 0.1) 80%, transparent 100%);
+    margin: 0;
+}
+
+.section-divider.gradient-divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+/* Alternating section backgrounds */
+.hero {
+    background: linear-gradient(135deg, var(--light-color) 0%, var(--light-dark) 100%);
+}
+
+.berrry-banner {
+    background: white;
+    border-top: 1px solid var(--light-darker);
+    border-bottom: 1px solid var(--light-darker);
+}
+
+.about {
+    background: linear-gradient(135deg, #f8f9fa 0%, #f4f5f7 100%);
+}
+
+.problems {
+    background: white;
+    border-top: 1px solid var(--light-darker);
+    border-bottom: 1px solid var(--light-darker);
+}
+
+.vision {
+    background: linear-gradient(135deg, #f7f8fc 0%, #f0f2f8 100%);
+}
+
+.projects {
+    background: white;
+    border-top: 1px solid var(--light-darker);
+    border-bottom: 1px solid var(--light-darker);
+}
+
+.join {
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
 }
 
 /* Hero section */
@@ -173,7 +220,6 @@ section + section {
     text-align: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--light-color) 0%, var(--light-dark) 100%);
 }
 
 .hero-content {
@@ -271,38 +317,14 @@ section + section {
 
 /* About section */
 .about {
-    background-color: white;
     position: relative;
     z-index: 1;
-}
-
-.about::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: linear-gradient(to bottom, transparent, #f7f7f9);
-    z-index: -1;
 }
 
 .section-heading {
     position: relative;
     display: inline-block;
     margin-bottom: var(--space-2xl);
-}
-
-.section-heading::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    border-radius: var(--radius-pill);
 }
 
 /* This styling is now handled by .section-heading */
@@ -316,21 +338,8 @@ section + section {
 
 /* Problems section */
 .problems {
-    padding: 60px 0;
-    text-align: center;
-    background-color: #f7f7f9;
     position: relative;
     overflow: hidden;
-}
-
-.problems::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
 }
 
 /* This styling is now handled by .section-heading */
@@ -372,9 +381,6 @@ section + section {
 
 /* Vision section */
 .vision {
-    padding: 100px 0;
-    text-align: center;
-    background-color: white;
     position: relative;
 }
 
@@ -483,20 +489,7 @@ section + section {
 
 /* Projects section */
 .projects {
-    padding: 100px 0;
-    text-align: center;
-    background-color: #f0f0f5;
     position: relative;
-}
-
-.projects::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
 }
 
 
@@ -585,9 +578,6 @@ section + section {
 
 /* Join section */
 .join {
-    padding: 120px 0;
-    text-align: center;
-    background: linear-gradient(135deg, #f8f9fa 0%, #f0f0f5 100%);
     position: relative;
     overflow: hidden;
 }
@@ -678,12 +668,10 @@ section + section {
 
 /* Berrry App Banner */
 .berrry-banner {
-    background: linear-gradient(135deg, var(--light-color) 0%, var(--light-dark) 100%);
     padding: var(--space-3xl) 0;
     text-align: center;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid var(--light-darker);
 }
 
 .berrry-banner::before {
