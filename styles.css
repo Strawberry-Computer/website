@@ -28,6 +28,7 @@
 
     --telegram-color: #0088cc;
     --twitter-color: #1DA1F2;
+    --reddit-color: #FF4500;
 
     /* Spacing system */
     --space-xs: 0.25rem;
@@ -848,6 +849,11 @@ section + section {
 
 .cta-button.twitter {
     background-color: var(--twitter-color);
+    color: white;
+}
+
+.cta-button.reddit {
+    background-color: var(--reddit-color);
     color: white;
 }
 
