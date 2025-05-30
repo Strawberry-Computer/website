@@ -1228,9 +1228,24 @@ footer p {
         margin-top: var(--space-xl);
     }
 
-    /* CTA buttons */
+    /* CTA buttons - Mobile Grid Layout */
     .cta-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: var(--space-md);
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .cta-button {
+        padding: var(--space-md) var(--space-lg);
+        justify-content: center;
+        font-size: 0.9rem;
+    }
+
+    .social-icon {
+        width: 16px;
+        height: 16px;
     }
 
     /* Footer spacing */
