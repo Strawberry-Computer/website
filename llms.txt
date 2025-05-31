@@ -1,6 +1,6 @@
 # About Strawberry Computer
 
-We're reimagining computing for the AI era. No longer just a tool, but an extension of yourself that understands and adapts to your unique needs.
+> We're reimagining computing for the AI era. No longer just a tool, but an extension of yourself that understands and adapts to your unique needs.
 
 ## Our Vision
 
