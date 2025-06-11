@@ -1,0 +1,23 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle for better visibility -->
+  <circle cx="256" cy="256" r="256" fill="#ffffff"/>
+  
+  <!-- Strawberry body (scaled and centered) -->
+  <path d="M256,100 Q360,60 340,280 Q320,460 256,500 Q192,460 172,280 Q152,60 256,100" fill="#ff3b5c"/>
+  
+  <!-- Strawberry seeds (bigger for better visibility) -->
+  <g fill="#ffeb3b">
+    <ellipse cx="221" cy="179" rx="12" ry="6" transform="rotate(45 221 179)"/>
+    <ellipse cx="290" cy="179" rx="12" ry="6" transform="rotate(45 290 179)"/>
+    <ellipse cx="255" cy="221" rx="12" ry="6" transform="rotate(45 255 221)"/>
+    <ellipse cx="221" cy="264" rx="12" ry="6" transform="rotate(45 221 264)"/>
+    <ellipse cx="290" cy="264" rx="12" ry="6" transform="rotate(45 290 264)"/>
+    <ellipse cx="255" cy="307" rx="12" ry="6" transform="rotate(45 255 307)"/>
+    <ellipse cx="221" cy="349" rx="12" ry="6" transform="rotate(45 221 349)"/>
+    <ellipse cx="290" cy="349" rx="12" ry="6" transform="rotate(45 290 349)"/>
+  </g>
+  
+  <!-- Strawberry leaves (scaled and positioned) -->
+  <path d="M256,100 Q180,20 140,60 Q100,100 180,120" fill="#4caf50"/>
+  <path d="M256,100 Q332,20 372,60 Q412,100 332,120" fill="#4caf50"/>
+</svg>
